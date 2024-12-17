@@ -26,11 +26,10 @@ pub mod votingdapp {
     pub fn initialize_canditate(ctx: Context<InitializeCandidate>,
                                 candidate_name: String,
                                 poll_id: 64) -> Result <()>{
-
+        let candidate =&mut ctx.accounts.candidate;
+        candidate.candidate_name = candidate_name;
+        candidate.candidate_votes = 0;
         Ok(())
-
-                                    
-
     }
 }
 #[derive(Accounts)]
